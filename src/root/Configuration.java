@@ -17,7 +17,7 @@ public class Configuration implements IConfiguration {
         return System.getenv("PASS");
     }
     public String getUrl(){
-        return System.getenv("url");
+        return System.getenv("URL");
 
     }
 }

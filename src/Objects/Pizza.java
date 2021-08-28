@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Pizza extends Entity{
     private String name;
     private String url;
-    private final Set<Ingredient> ingredients = new HashSet<Ingredient>(); //Debería ser un HashSet de UUID
+    private final Set<Ingredient> ingredients = new HashSet<Ingredient>();
     private double price;
     private final Set<Comment> comments = new HashSet<Comment>();
 
