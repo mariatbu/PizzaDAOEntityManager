@@ -19,7 +19,7 @@ public class IngredientDAO implements IDAO<Ingredient> {
         byte[] ingredientId = UuidAdapter.getBytesFromUUID(uuid);
         EntityManager
         .buildConnection(Configuration.getConfiguration())
-        .addStatement(ingredient, "sql", (statement, entity)->{
+        .addStatement(ingredient, sql, (statement, entity)->{
             statement.setBytes(1, ingredientId);
             statement.setString(2, ingredient.getName());
             statement.setDouble(3, ingredient.getPrice());
@@ -36,7 +36,7 @@ public class IngredientDAO implements IDAO<Ingredient> {
         byte[] ingredientId = UuidAdapter.getBytesFromUUID(uuid);
         EntityManager
         .buildConnection(Configuration.getConfiguration())
-        .addStatement(ingredient, "sql", (statement, entity)->{
+        .addStatement(ingredient, sql, (statement, entity)->{
             statement.setString(1, ingredient.getName());
             statement.setDouble(2, ingredient.getPrice());
             statement.setBytes(3, ingredientId);
@@ -53,7 +53,7 @@ public class IngredientDAO implements IDAO<Ingredient> {
         byte[] ingredientId = UuidAdapter.getBytesFromUUID(id);
         EntityManager
         .buildConnection(Configuration.getConfiguration())
-        .addStatement(ingredient, "sql", (statement, entity)->{
+        .addStatement(ingredient, sql, (statement, entity)->{
             statement.setBytes(1, ingredientId);
         }).save();
     }
@@ -67,7 +67,7 @@ public class IngredientDAO implements IDAO<Ingredient> {
                     WHERE id=?""";
         Ingredient ingredientResult = EntityManager
         .buildConnection(Configuration.getConfiguration())
-        .addStatement(ingredient, "sql", (statement, entity)->{
+        .addStatement(ingredient, sql, (statement, entity)->{
             statement.setBytes(1, UuidAdapter.getBytesFromUUID(id));
         })
         .select(Ingredient.class, (resultSet, entity) -> {

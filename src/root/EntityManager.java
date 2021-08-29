@@ -85,7 +85,7 @@ public class EntityManager implements IEntityManager {
             IRunnables runnable = this.runnables.get(0);
 
             PreparedStatement statement = connection.prepareStatement(runnable.getSQL());
-
+            runnable.run(statement);
             ResultSet resultSetSQL = statement.executeQuery();
 
             while (resultSetSQL.next()) {
